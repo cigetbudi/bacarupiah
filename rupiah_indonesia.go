@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func RupiahIndonesia(number int) string {
+func BacaAngka(number int) string {
 
 	var (
 		satuan = []string{"", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan"}
@@ -17,7 +17,7 @@ func RupiahIndonesia(number int) string {
 	result := ""
 
 	if number >= 1000000 {
-		result += RupiahIndonesia(number/1000000) + " Juta "
+		result += BacaAngka(number/1000000) + " Juta "
 		number %= 1000000
 	}
 
@@ -31,7 +31,7 @@ func RupiahIndonesia(number int) string {
 	}
 
 	if number >= 1000 {
-		result += RupiahIndonesia(number/1000) + " Ribu "
+		result += BacaAngka(number/1000) + " Ribu "
 		number %= 1000
 	}
 
@@ -58,4 +58,8 @@ func RupiahIndonesia(number int) string {
 	}
 
 	return strings.TrimSpace(result)
+}
+
+func BacaRupiah(number int) string {
+	return BacaAngka(number) + " Rupiah"
 }
